@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.link{
+    margin:10px;
+}
+
+.link.active{
+    color:wheat;
+    background-color: red;
+}
+.zed{
+    z-index: 100;
+}
