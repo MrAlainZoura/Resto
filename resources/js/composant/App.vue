@@ -1,6 +1,6 @@
 <template>
     <header class="z-100">
-        <NavBar/>
+        <NavBar />
     </header>
 
     <main>
