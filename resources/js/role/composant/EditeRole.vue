@@ -42,10 +42,7 @@
                     <input type="text" required name="libele" v-model="formData.libele"  id="email-address-icon" class="bg-gray-50 border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="libele role">
                 </div>
                 <textarea id="message" required rows="4" name="description" v-model="formData.description"  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
-                
-                <div class="m-4 flex items-center justify-center gap-2 p-0 m-0">
-                    <button class="btn-primary btn text-lg w-1/2" type="submit">Enregistrer</button>
-                </div>
+                <Button type="submit" label="Editer"/>
             </fieldset>
                 
         </form>
@@ -57,6 +54,7 @@ import {computed, onMounted, ref} from 'vue'
 import axios from 'axios'
 import Alert2 from '../../composant/AlertError.vue';
 import Alert from '../../composant/AlertSuccess.vue';
+import Button from '../../composant/input/Button.vue';
 import { RouterView, useRoute } from 'vue-router';
 
     const id = useRoute().params.id
@@ -92,7 +90,7 @@ import { RouterView, useRoute } from 'vue-router';
                 console.log(message.value.data);
                 console.log(success)
                 alert2.value=true
-                information.value = "Enregistrement éffectué avec succès"
+                information.value = message.value.data
            }else{
                alert.value=true
                data.value = message.value.error

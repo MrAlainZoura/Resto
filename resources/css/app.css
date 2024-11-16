@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 
-.link{
-    margin:10px;
-}
-
 .link.active{
    text-decoration-line: underline;
 }
