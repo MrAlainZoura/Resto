@@ -16,6 +16,9 @@ Route::get('role/{id}', function(){
     return view('role');
 });
 
+Route::get('bureau', function(){
+    return view('role');
+})->where('bureau','bureau/');
 // Route::get('/role', function () {
 //     return Inertia::render('role');
 // });
