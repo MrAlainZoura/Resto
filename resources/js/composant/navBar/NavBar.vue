@@ -39,7 +39,7 @@
                         
                     </li>
                     <li>
-                        <a>
+                        <router-link to="/bureau" class="link">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5"
@@ -52,7 +52,7 @@
                             stroke-width="2"
                             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
                 <div class="search">
@@ -106,33 +106,41 @@
                 </div>
             </div>
             </div>
-            <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                <img
-                    alt="Tailwind CSS Navbar component"
-                    :src="imgProfil" />
+            <div class="dropdown dropdown-end" v-if="props.connect">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                    <img
+                        alt="Tailwind CSS Navbar component"
+                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    </div>
                 </div>
+                <ul
+                    tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li>
+                    <a class="justify-between">
+                        Profile
+                        <span class="badge">New</span>
+                    </a>
+                    </li>
+                    <li><a>Settings</a></li>
+                    <li><a>Logout</a></li>
+                </ul>
             </div>
-            <ul
-                tabindex="0"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                <li>
-                <a class="justify-between">
-                    Profile
-                    <span class="badge">New</span>
-                </a>
-                </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
-            </ul>
+            <div v-else>
+                <router-link class="link" to="/role">
+                    <button class="btn btn-primary btn-block">Login</button>
+                </router-link>
             </div>
         </div>
-        
     </div>
 </template>
 <script setup>
-import imgProfil from '../public/image/PManager.jpg';
+import {ref} from 'vue'
+
+    const props = defineProps({
+        connect: Boolean,
+    })
 </script>
 <style>
     .zed{
